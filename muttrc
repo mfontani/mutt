@@ -1,0 +1,129 @@
+# A basic .muttrc tailored for:
+# - Google Mail users in the UK
+# - who use GPG
+# - who don't like overly verbose GPG output in their signed emails
+# - who use VIM on the mac to write their emails
+# - who have multiple e-mail accounts
+
+# Change the following line (the last one takes precedence) to a different
+# editor you prefer.
+set editor = "vim"
+set editor='vim + -c "set textwidth=72" -c "set spell" -c "set wrap" -c "set nocp" -c "?^$"'
+set editor='/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim + -c "set textwidth=72" -c "set spell" -c "set wrap" -c "set nocp" -c "set fo+=ta"'
+set editor='/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim + -c "set textwidth=72" -c "set spell" -c "set wrap"'
+
+# CREATE THIS! Format:
+# set my_foobar_pass="alsdjflkjsldfkjals"
+# set my_gmail_pass="alskdjfalkshjdfkjahs"
+# set my_darkpan_pass="alksjdflkajsdlkfjalsdf"
+# set my_mailgun_pass="lajksdflkajsdlkfjaslkdfj"
+source ~/.mutt/credentials
+
+# CHANGE THIS! Format:
+# account-hook . 'unset imap_user imap_pass'
+# account-hook 'imaps://USER@FOOBAR.com@imap.gmail.com/' "\
+#                 set imap_user=USER@FOOBAR.com imap_pass='$my_foobar_pass' "
+# set folder="imaps://USER@FOOBAR.com@imap.gmail.com/"
+# mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+# folder-hook 'imaps://USER@FOOBAR.com@imap.gmail.com' " \
+#         set     folder=imaps://USER@FOOBAR.com@imap.gmail.com/ \
+#                 postponed=+[Gmail]/Drafts \
+#                 record=+[Gmail]/'Sent Mail' \
+#                 smtp_url=smtps://USER@FOOBAR.com@smtp.gmail.com \
+#                 smtp_pass='$my_foobar_pass' \
+#                 signature=~/.mutt/sig.foobar \
+#                 from='Your Name <USER@FOOBAR.com> ' \
+#                 realname='YOUR NAME' "
+# do the above as many timeas as you have accounts.
+source ~/.mutt/accounts
+
+# Gmail-specific things + shortcuts : d to archive, gi to go to inbox, etc.
+source ~/.mutt/gmail
+
+# Cache + certificates
+set header_cache=~/.mutt/cache/
+set message_cachedir=~/.mutt/cache/
+set certificate_file=~/.mutt/certificates
+
+set imap_check_subscribed
+set mail_check = 90
+set timeout = 30
+set imap_keepalive = 300
+
+set include
+
+# Sorting
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+
+# Do not show the following headers
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+
+# Order the headers displayed thusly:
+hdr_order Date From To Cc
+
+alternative_order text/plain text/html *
+auto_view text/html
+
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop
+
+# Aliases for e-mail should reside in ~/.mutt/aliases:
+# alias aliasname Full Name <email@example.com>
+set alias_file= ~/.mutt/aliases
+set sort_alias= alias
+set reverse_alias=yes
+source $alias_file
+
+# Deal with gpg encrypting, signing, etc.
+source ~/.mutt/gpg.rc
+
+set pgp_autosign             # autosign all outgoing mails
+set pgp_replyencrypt         # autocrypt replies to crypted
+set pgp_replysign            # autosign replies to signed
+set pgp_replysignencrypted   # autosign replies to sig/crypt
+set pgp_retainable_sigs      # nested mime fmt sigs
+set pgp_sign_as=0x38AE4D5E   # primary keyid
+set pgp_timeout=2400         # passphrase timeout
+set pgp_sort_keys=trust      # sort order
+# set crypt_autoencrypt=yes
+
+# My colours
+source ~/.mutt/colors
+
+# Color specifically your name or similar stuff:
+color body          color136        color234        "(marco|fontani|mf)"
+
+# More aliases for my mailboxes
+macro index,pager gt "<change-folder>=TECH<enter>" "Go to TECH"
+macro index,pager gg "<change-folder>=GIT<enter>" "Go to GIT"
+macro index,pager gR "<recall-message><enter>"
+
+# Switch between accounts
+macro index,pager gG "y/fontani@imap.gmail.com/INBOX<enter><enter>" "Go to @gmail inbox"
+macro index,pager gW "y/marco@sitpub.com@imap.gmail.com/INBOX<enter><enter>" "Go to @work inbox"
+macro index,pager gD "y/mf@5.9.86.209/INBOX<enter><enter>" "Go to @darkpan inbox"
+macro index,pager gM "y/postmaster@pdkp.mailgun.org@imap.mailgun.org/INBOX<enter><enter>" "Go to @mailgun inbox"
+
+# Default folders
+set folder = "imaps://marco@sitpub.com@imap.gmail.com/"
+set spoolfile = "+INBOX"
+
+# Display html emails inline; add following to ~/.mailcap:
+# text/html; elinks -dump -dump-charset iso-8859-15 -default-mime-type text/html %s; needsterminal; copiousoutput;
+set implicit_autoview
+
+set autoedit
+set edit_headers
+
+# I always BCC all messages to myself, so that I can see my replies in Mutt's
+# index view. YMMV.
+my_hdr Bcc: marco@sitpub.com
+
+set sleep_time=0
+
+set index_format=" %Z %(%a %e %b)  %-20.20F  %s"

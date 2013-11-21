@@ -1,0 +1,133 @@
+# vim: foldmethod=marker foldlevel=0 ts=2 et sw=2 :
+
+# # {{{ from http://greenfly.org/muttrc-example
+# color normal     white default
+# color attachment brightyellow default
+# color hdrdefault cyan default
+# color indicator  brightwhite default
+# color markers    brightred default
+# color quoted     green default
+# color signature  cyan default
+# color tilde      blue default
+# color tree       red default
+# color quoted1    green default
+# 
+# color index brightyellow default ~N # New
+# color index yellow default ~O   # Old
+# 
+# #example of colorizing based on FROM:
+# #color index    magenta default '~f foo@example.com'
+# # }}}
+
+# # {{{ from http://esaurito.net/dotfiles/muttrc.colors.html
+# color index red default ~F
+# color index cyan blue ~T
+# color index cyan default '~C .*@bugs.debian.org'
+# color index magenta default '~l'
+# 
+# # colors
+# color hdrdefault cyan default
+# color quoted   green default
+# color signature        cyan default
+# color attachment brightyellow default
+# color indicator black cyan
+# color status   brightgreen blue
+# color tree     red default
+# color markers  brightred default
+# color tilde    blue default
+# color header   brightgreen default ^From:
+# color header   brightcyan default ^To:
+# color header   brightcyan default ^Reply-To:
+# color header   brightcyan default ^Cc:
+# color header   brightblue default ^Subject:
+# color body     brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+# color body     brightblue default (http|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9]+
+# # }}}
+
+# # {{{ from http://www.gentoo.org/doc/en/guide-to-mutt.xml
+# #color quoted green  default
+# color quoted1 magenta blue
+# #color quoted2 yellow default
+# #color quoted3 red default
+# #color signature cyan cyan
+# 
+# #this color setup is copied from /etc/mutt/Muttrc.color
+# #comment it out if you want the default colors in /etc/mutt/Muttrc
+# # Je vois la vie en rose :-)
+# color   hdrdefault      brightcyan      blue
+# color   header          brightwhite     blue "^from:"
+# color   header          brightwhite     blue   "^subject:"
+# 
+# color   quoted          brightgreen     blue
+# color   signature       brightwhite     blue
+# 
+# color   indicator       blue            green
+# 
+# color   error           red             black
+# mono    error           bold
+# color   status          black cyan
+# mono    status          bold
+# color   tree            yellow          blue
+# 
+# color   tilde           brightmagenta   blue
+# color   body            brightwhite     blue    "[-a-z_0-9.]+@[-a-z_0-9.]+"
+# mono    body            bold                    "[-a-z_0-9.]+@[-a-z_0-9.]+"
+# color   body            brightyellow    black   "^Good signature"
+# mono    body            bold                    "^Good signature"
+# color   body            brightwhite     red     "^Bad signature from.*"
+# mono    body            bold                    "^Bad signature from.*"
+# color   normal          white           blue
+# color   message         green           black
+# color   attachment      brightgreen     blue
+# # }}}
+
+# {{{ based on one from http://www.gentoo.org/doc/en/guide-to-mutt.xml
+#color quoted green  default
+#color quoted1 magenta blue
+#color quoted2 yellow default
+#color quoted3 red default
+#color signature cyan cyan
+
+#color   hdrdefault      brightcyan      blue
+color   hdrdefault      brightcyan            black
+color   header          brightcyan      black "^from:"
+color   header          brightcyan      black "^subject:"
+
+color   quoted          brightblue      black
+color   signature       blue            black
+
+# color for the line currently selected
+color   indicator       black           green
+
+#color   error           red             black
+#mono    error           bold
+#color   status          black cyan
+color   status          brightgreen black
+#mono    status          bold
+#color   tree            yellow          blue
+
+#color   tilde           brightmagenta   blue
+#color   body            brightwhite     blue    "[-a-z_0-9.]+@[-a-z_0-9.]+"
+#mono    body            bold                    "[-a-z_0-9.]+@[-a-z_0-9.]+"
+#color   body            brightyellow    black   "^Good signature"
+#mono    body            bold                    "^Good signature"
+#color   body            brightwhite     red     "^Bad signature from.*"
+#mono    body            bold                    "^Bad signature from.*"
+#color   normal          white           blue
+#color   message         green           black
+#color   attachment      brightgreen     blue
+
+# }}}
+
+#source ~/.mutt/mutt-colors-solarized-light-256.muttrc
+source ~/.mutt/mutt-colors-solarized-dark-256.muttrc
+
+# Show *all* colours available to mutt:
+# perl -we'for(0..255) { my $l = 5 - length "$_"; printf( "\x1b[38;5;%umcolor%u%s", $_, $_, " "x$l,); print "\n" if $_ % 10 == 9; } print "\n";'
+color body          color33         color234        "( *[-+=#*~_]){6,}"
+
+# folder-hook takes a *regexp* as first parameter.
+folder-hook .        "color status  color241  color235 "
+folder-hook GIT      "color status  color232  color94  "
+folder-hook Starred  "color status  color231  color88  "
+folder-hook Sent     "color status  color231  color22  "

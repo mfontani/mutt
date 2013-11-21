@@ -1,0 +1,64 @@
+# vi: set filetype=config :
+
+account-hook . 'unset imap_user imap_pass'
+account-hook 'imaps://marco@sitpub.com@imap.gmail.com/' "\
+                set imap_user=marco@sitpub.com imap_pass='$my_sitpub_pass' "
+account-hook 'imaps://fontani@imap.gmail.com/' "\
+                set imap_user=fontani imap_pass='$my_gmail_pass' "
+account-hook 'imaps://mf@5.9.86.209/' "\
+                set imap_user=mf imap_pass='$my_darkpan_pass' "
+account-hook 'imaps://postmaster@pdkp.mailgun.org@imap.mailgun.org/' "\
+                set imap_user=postmaster@pdkp.mailgun.org imap_pass='$my_mailgun_pass' "
+
+# Setup for user1:
+set folder="imaps://marco@sitpub.com@imap.gmail.com/"
+mailboxes =INBOX =GIT =TECH =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+folder-hook 'imaps://marco@sitpub.com@imap.gmail.com' " \
+        set     folder=imaps://marco@sitpub.com@imap.gmail.com/ \
+                postponed=+[Gmail]/Drafts \
+                record=+[Gmail]/'Sent Mail' \
+                smtp_url=smtps://marco@sitpub.com@smtp.gmail.com \
+                smtp_pass='$my_sitpub_pass' \
+                signature=~/.mutt/sig.sitpub \
+                from='Marco Fontani <marco@sitpub.com> ' \
+                realname='Marco Fontani' "
+
+# Setup for user2:
+set folder="imaps://fontani@imap.gmail.com/"
+mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+folder-hook 'imaps://fontani@imap.gmail.com' " \
+        set     folder=imaps://fontani@imap.gmail.com/ \
+                postponed=+[Gmail]/Drafts \
+                record=+[Gmail]/'Sent Mail' \
+                smtp_url=smtps://fontani@smtp.gmail.com \
+                smtp_pass='$my_gmail_pass' \
+                signature=~/.mutt/sig.gmail \
+                from='Marco Fontani <fontani@gmail.com> ' \
+                realname='Marco Fontani' "
+
+# Setup for user3:
+set folder="imaps://mf@5.9.86.209/"
+mailboxes =INBOX =Drafts =Sent =Spam =Trash
+folder-hook 'imaps://mf@5.9.86.209' " \
+        set     folder=imaps://mf@5.9.86.209/ \
+                postponed=+Drafts \
+                record=+Sent \
+                smtp_url=smtps://mf@5.9.86.209 \
+                smtp_pass='$my_darkpan_pass' \
+                signature=~/.mutt/sig.darkpan \
+                from='Marco Fontani <mf@darkpan.com> ' \
+                realname='Marco Fontani' "
+
+# Setup for user4:
+set folder="imaps://postmaster@pdkp.mailgun.org@imap.mailgun.org/"
+# mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+mailboxes =INBOX
+folder-hook 'imaps://postmaster@pdkp.mailgun.org@imap.mailgun.org' " \
+        set     folder=imaps://postmaster@pdkp.mailgun.org@imap.mailgun.org/ \
+                postponed=+Drafts \
+                record=+Sent \
+                smtp_url=smtps://postmaster@pdkp.mailgun.org@smtp.mailgun.org \
+                smtp_pass='$my_mailgun_pass' \
+                signature=~/.mutt/sig.mailgun \
+                from='PDKP Admin <postmaster@pdkp.mailgun.org> ' \
+                realname='Marco Fontani' "
