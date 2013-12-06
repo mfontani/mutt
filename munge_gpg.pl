@@ -19,7 +19,7 @@ while (my $line = <STDIN>) {
         next;
     }
 
-    if ($line =~ m!^(\e\]\d+;(?:\d+)?\D)\[-- PGP output follows \(current time: ([A-Z][a-z]{2} \d\d? [A-Z][a-z]{2} \d{2}:\d{2}:\d{2} \d{4})\) --\]!) {
+    if ($line =~ m!^(\e\]\d+;(?:\d+)?\D)\[-- PGP output follows \(current time: ([A-Z][a-z]{2} \s?\d\d? [A-Z][a-z]{2} \d{2}:\d{2}:\d{2} \d{4})\) --\]!) {
         my $ansi = $1;
         $current_time = $2;
         next;
@@ -28,7 +28,7 @@ while (my $line = <STDIN>) {
         $skip_next = 1;
         next;
     }
-    if ($current_time && $line =~ m!^gpg: Signature made ([A-Z][a-z]{2} \d\d? [A-Z][a-z]{2} \d{2}:\d{2}:\d{2} \d{4} \w{3}) using [DR]SA key ID ([A-F0-9]+)$!) {
+    if ($current_time && $line =~ m!^gpg: Signature made ([A-Z][a-z]{2} \s?\d\d? [A-Z][a-z]{2} \d{2}:\d{2}:\d{2} \d{4} \w{3}) using [DR]SA key ID ([A-F0-9]+)$!) {
         $signature_made = $1;
         $signature_id   = $2;
         next;
