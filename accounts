@@ -5,6 +5,8 @@ account-hook 'imaps://marco@sitpub.com@imap.gmail.com/' "\
                 set imap_user=marco@sitpub.com imap_pass='$my_sitpub_pass' "
 account-hook 'imaps://fontani@imap.gmail.com/' "\
                 set imap_user=fontani imap_pass='$my_gmail_pass' "
+account-hook 'imaps://moylen@wowhelp.it@imap.gmail.com/' "\
+                set imap_user=moylen@wowhelp.it imap_pass='$my_wowhelp_pass' "
 account-hook 'imaps://mf@5.9.86.209/' "\
                 set imap_user=mf imap_pass='$my_darkpan_pass' "
 account-hook 'imaps://postmaster@pdkp.mailgun.org@imap.mailgun.org/' "\
@@ -35,6 +37,18 @@ folder-hook 'imaps://fontani@imap.gmail.com' " \
                 signature=~/.mutt/sig.gmail \
                 from='Marco Fontani <fontani@gmail.com> ' \
                 realname='Marco Fontani' "
+
+set folder="imaps://moylen@wowhelp.it@imap.gmail.com/"
+mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+folder-hook 'imaps://moylen@wowhelp.it@imap.gmail.com' " \
+        set     folder=imaps://moylen@wowhelp.it@imap.gmail.com/ \
+                postponed=+[Gmail]/Drafts \
+                record=+[Gmail]/'Sent Mail' \
+                smtp_url=smtps://moylen@wowhelp.it@smtp.gmail.com \
+                smtp_pass='$my_wowhelp_pass' \
+                signature=~/.mutt/sig.wowhelp \
+                from='Moylen <moylen@wowhelp.it> ' \
+                realname='Moylen' "
 
 # Setup for user3:
 set folder="imaps://mf@5.9.86.209/"
