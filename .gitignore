@@ -3,3 +3,4 @@ certificates
 aliases
 credentials
 sig.*
+.msmtprc
