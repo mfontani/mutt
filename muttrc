@@ -106,7 +106,7 @@ macro index,pager gR "<recall-message><enter>"
 # Switch between accounts
 macro index,pager gG "y/fontani@imap.gmail.com/INBOX<enter><enter>" "Go to @gmail inbox"
 macro index,pager gW "y/marco@sitpub.com@imap.gmail.com/INBOX<enter><enter>" "Go to @work inbox"
-macro index,pager gD "y/mf@5.9.86.209/INBOX<enter><enter>" "Go to @darkpan inbox"
+macro index,pager gD "y/mf@darkpan.com/INBOX<enter><enter>" "Go to @darkpan inbox"
 macro index,pager gM "y/postmaster@pdkp.mailgun.org@imap.mailgun.org/INBOX<enter><enter>" "Go to @mailgun inbox"
 macro index,pager gH "y/moylen@wowhelp.it@imap.gmail.com/INBOX<enter><enter>" "Go to @wowhelp inbox"
 
