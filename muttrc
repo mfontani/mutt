@@ -128,3 +128,6 @@ my_hdr Bcc: marco@sitpub.com
 set sleep_time=0
 
 set index_format=" %Z %(%a %e %b)  %-20.20F  %s"
+
+# Since yosemite, this is needed to use GPG else it screws everything up
+set smtp_authenticators = 'gssapi:login'
