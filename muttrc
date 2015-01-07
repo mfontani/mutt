@@ -8,9 +8,8 @@
 # Change the following line (the last one takes precedence) to a different
 # editor you prefer.
 set editor = "vim"
-set editor='vim + -c "set textwidth=72" -c "set spell" -c "set wrap" -c "set nocp" -c "?^$"'
-set editor='/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim + -c "set textwidth=72" -c "set spell" -c "set wrap" -c "set nocp" -c "set fo+=ta"'
-set editor='/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim + -c "set textwidth=72" -c "set spell" -c "set wrap"'
+set editor = '/usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim + -c "set textwidth=72" -c "set spell" -c "set wrap"'
+
 
 # CREATE THIS! Format:
 # set my_foobar_pass="alsdjflkjsldfkjals"
