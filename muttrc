@@ -103,11 +103,11 @@ macro index,pager gg "<change-folder>=GIT<enter>" "Go to GIT"
 macro index,pager gR "<recall-message><enter>"
 
 # Switch between accounts
+macro index,pager gw "y/moylen@wowhelp.it@imap.gmail.com/INBOX<enter><enter>" "Go to @wowhelp inbox"
 macro index,pager gG "y/fontani@imap.gmail.com/INBOX<enter><enter>" "Go to @gmail inbox"
 macro index,pager gW "y/marco@sitpub.com@imap.gmail.com/INBOX<enter><enter>" "Go to @work inbox"
 macro index,pager gD "y/mf@darkpan.com/INBOX<enter><enter>" "Go to @darkpan inbox"
 macro index,pager gM "y/postmaster@pdkp.mailgun.org@imap.mailgun.org/INBOX<enter><enter>" "Go to @mailgun inbox"
-macro index,pager gH "y/moylen@wowhelp.it@imap.gmail.com/INBOX<enter><enter>" "Go to @wowhelp inbox"
 
 # Default folders
 set folder = "imaps://marco@sitpub.com@imap.gmail.com/"
