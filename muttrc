@@ -8,7 +8,7 @@
 # Change the following line (the last one takes precedence) to a different
 # editor you prefer.
 set editor = 'vim + -c "set textwidth=60" -c "set spell" -c "set wrap"'
-set editor = '/usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim + -c "set textwidth=60" -c "set spell" -c "set wrap"'
+# set editor = '/usr/local/Cellar/macvim/7.4-73/MacVim.app/Contents/MacOS/Vim + -c "set textwidth=60" -c "set spell" -c "set wrap"'
 
 
 # CREATE THIS! Format:
