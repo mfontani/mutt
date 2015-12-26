@@ -17,5 +17,5 @@ text/html; /usr/local/bin/elinks -dump -dump-charset utf-8 -default-mime-type te
 #text/html; /usr/local/bin/elinks -force-html %s
 
 # MS Office stuff
-Application/vnd.ms-excel; ~/.mutt/view_attachment.sh %s "-" '/Applications/LibreOffice.app'
-Application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/LibreOffice.app'
+Application/vnd.ms-excel; ~/.mutt/view_attachment.sh %s "-" '/Applications/Pages.app'
+Application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/Pages.app'
