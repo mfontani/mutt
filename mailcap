@@ -12,7 +12,8 @@ application/pdf; ~/.mutt/view_attachment.sh %s pdf
 # Use "m" on the "Mutt: Attachments" view to use this:
 text/html; ~/.mutt/view_attachment.sh %s html
 # use "enter" to use this:
-text/html; /usr/local/bin/elinks -dump -dump-charset iso-8859-15 -default-mime-type text/html %s; needsterminal; copiousoutput;
+#text/html; /usr/local/bin/elinks -dump -dump-charset iso-8859-15 -default-mime-type text/html %s; needsterminal; copiousoutput;
+text/html; /usr/local/bin/elinks -dump -dump-charset utf-8 -default-mime-type text/html %s; needsterminal; copiousoutput;
 #text/html; /usr/local/bin/elinks -force-html %s
 
 # MS Office stuff
