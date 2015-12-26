@@ -110,7 +110,8 @@ macro index,pager gD "y/mf@darkpan.com/INBOX<enter><enter>" "Go to @darkpan inbo
 macro index,pager gM "y/postmaster@pdkp.mailgun.org@imap.mailgun.org/INBOX<enter><enter>" "Go to @mailgun inbox"
 
 # Default folders
-set folder = "imaps://marco@sitpub.com@imap.gmail.com/"
+# set folder = "imaps://marco@sitpub.com@imap.gmail.com/"
+set folder = "imaps://fontani@imap.gmail.com/"
 set spoolfile = "+INBOX"
 
 # Display html emails inline; add following to ~/.mailcap:
