@@ -86,7 +86,7 @@ set pgp_replyencrypt         # autocrypt replies to crypted
 set pgp_replysign            # autosign replies to signed
 set pgp_replysignencrypted   # autosign replies to sig/crypt
 set pgp_retainable_sigs      # nested mime fmt sigs
-set pgp_sign_as=0x3C879073   # primary keyid
+set pgp_sign_as=0x3C879073   # primary keyid (now signed!)
 set pgp_timeout=2400         # passphrase timeout
 set pgp_sort_keys=trust      # sort order
 # set crypt_autoencrypt=yes
