@@ -7,8 +7,8 @@ account-hook 'imaps://fontani@imap.gmail.com/' "\
                 set imap_user=fontani imap_pass='$my_gmail_pass' "
 account-hook 'imaps://moylen@wowhelp.it@imap.gmail.com/' "\
                 set imap_user=moylen@wowhelp.it imap_pass='$my_wowhelp_pass' "
-account-hook 'imaps://mf@darkpan.com/' "\
-                set imap_user=mf imap_pass='$my_darkpan_pass' "
+account-hook 'imaps://mf@darkpan.com@imap.gmail.com/' "\
+                set imap_user=mf@darkpan.com imap_pass='$my_darkpan_pass' "
 account-hook 'imaps://postmaster@pdkp.mailgun.org@imap.mailgun.org/' "\
                 set imap_user=postmaster@pdkp.mailgun.org imap_pass='$my_mailgun_pass' "
 
@@ -51,13 +51,13 @@ folder-hook 'imaps://moylen@wowhelp.it@imap.gmail.com' " \
                 realname='Moylen' "
 
 # Setup for user3:
-set folder="imaps://mf@darkpan.com/"
-mailboxes =INBOX =Drafts =Sent =Spam =Trash
-folder-hook 'imaps://mf@darkpan.com' " \
-        set     folder=imaps://mf@darkpan.com/ \
-                postponed=+Drafts \
-                record=+Sent \
-                smtp_url=smtps://mf@darkpan.com \
+set folder="imaps://mf@darkpan.com@imap.gmail.com/"
+mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+folder-hook 'imaps://mf@darkpan.com@imap.gmail.com' " \
+        set     folder=imaps://mf@darkpan.com@imap.gmail.com/ \
+                postponed=+[Gmail]/Drafts \
+                record=+[Gmail]/'Sent Mail' \
+                smtp_url=smtps://mf@darkpan.com@smtp.gmail.com \
                 smtp_pass='$my_darkpan_pass' \
                 signature=~/.mutt/sig.darkpan \
                 from='Marco Fontani <mf@darkpan.com> ' \
